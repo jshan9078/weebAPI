@@ -1,0 +1,1 @@
+from animetemplate import Anime
