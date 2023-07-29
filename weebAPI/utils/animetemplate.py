@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+load_dotenv('.env')
+playStem: str = os.getenv('PLAY_STEM')
+
 class Anime:
     def __init__(self, id, title, type, epCount, status, season, year, score, poster, siteLink):
         self.id = id 
@@ -31,6 +36,6 @@ class Anime:
         print()
         print(f"Score: {self.score}")
         print()
-        print(f"Watch Link: {self.siteLink}")
+        print(f"Watch Link: {playStem}{self.siteLink}")
         print()
 
