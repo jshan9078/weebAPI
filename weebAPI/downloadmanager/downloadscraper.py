@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from decrypter import decrypt
 import os
 
+
 load_dotenv('.env')
 targetEpisode: str = os.getenv('TARGET_EPISODE')
 session = requests.session()
@@ -13,11 +14,6 @@ def loadEpisodePage(session, targetEpisode):
     downloadOptions = re.findall('<a href="(?P<url>.+?)" .+? class="dropdown-item">.+? (?P<resolution>\d+)p.+?</a>',webpage)
     return downloadOptions
 
-def displayDownloadOptions(downloadOptions):
-    for url, resolution in downloadOptions:
-        print(f"Resolution: {resolution}")
-        print(f"Url: {url}")
-        print()
 
 def getDownloadLink(session, downloadOptions, choice):
     intermediaryPageLink = downloadOptions[choice][0]
