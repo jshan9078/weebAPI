@@ -24,7 +24,7 @@ def getSearchResults(session, query):
         searchResults.append(parsedEntry)
     return searchResults
 
-def getEpisodeLink(session,result,episodeNumber):
+def getEpisode(session,result,episodeNumber):
     pageCount=math.ceil(int(result.epCount)/30)
     for i in range(1,pageCount+1,1):
         episodeResultsRaw = session.get(f"""{episodeStem}{result.siteLink}&sort=episode_asc&page={i}""").text
@@ -33,6 +33,8 @@ def getEpisodeLink(session,result,episodeNumber):
             if int(entry[2])==episodeNumber:
                 newEpisodeObject = Episode(entry[0],entry[1],entry[2],entry[3],entry[5],entry[6],playStem+result.siteLink+"/"+entry[7])
                 return newEpisodeObject
+            
+
             
         
 

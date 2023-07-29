@@ -1,15 +1,12 @@
 import requests
 import re
-from dotenv import load_dotenv
-from decrypter import decrypt
 import os
-
-
-load_dotenv('.env')
-targetEpisode: str = os.getenv('TARGET_EPISODE')
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
+from decrypter import decrypt
 session = requests.session()
 
-def loadEpisodePage(session, targetEpisode):
+def getDownloadOptions(session, targetEpisode):
     webpage = session.get(targetEpisode).text
     downloadOptions = re.findall('<a href="(?P<url>.+?)" .+? class="dropdown-item">.+? (?P<resolution>\d+)p.+?</a>',webpage)
     return downloadOptions
@@ -29,8 +26,6 @@ def getDownloadLink(session, downloadOptions, choice):
         headers={"Referer": "https://kwik.cx/",},
         )
     return content.headers["Location"]
-
-
 
 
 

@@ -15,6 +15,7 @@ class Anime:
         self.score = score 
         self.poster = poster 
         self.siteLink = siteLink
+        self.fullSiteLink = playStem+self.siteLink
 
     def optionDisplay(self):
         print(self.title)
@@ -36,6 +37,6 @@ class Anime:
         print()
         print(f"Score: {self.score}")
         print()
-        print(f"Watch Link: {playStem}{self.siteLink}")
+        print(f"Watch Link: {self.fullSiteLink}")
         print()
 
