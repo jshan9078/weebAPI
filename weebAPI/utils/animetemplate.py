@@ -32,3 +32,5 @@ class Anime:
         print(f"Score: {self.score}")
         print()
         print(f"Watch Link: {self.siteLink}")
+        print()
+
