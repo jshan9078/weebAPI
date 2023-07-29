@@ -23,8 +23,3 @@ def get_download_options(episodeLink):
 
 def get_download_link(downloadOptions,choice):
     return getDownloadLink(session,downloadOptions,choice-1)
-
-# r = get_search_results("jujutsu kaisen")[0]
-# e = get_episode_link(get_episode(r,15))
-# d = get_download_options(e)
-# print(get_download_link(d,1))

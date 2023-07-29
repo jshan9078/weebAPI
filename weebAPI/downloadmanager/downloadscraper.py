@@ -4,7 +4,6 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from decrypter import decrypt
-session = requests.session()
 
 def getDownloadOptions(session, targetEpisode):
     webpage = session.get(targetEpisode).text

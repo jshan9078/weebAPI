@@ -12,9 +12,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.animetemplate import Anime
 from utils.episodetemplate import Episode
 
-session = requests.session()
-
-
 def getSearchResults(session, query):
     searchResults = []
     searchResultsRaw = session.get(searchStem+query).text
