@@ -21,5 +21,5 @@ def get_episode_link(episode):
 def get_download_options(episodeLink):
     return getDownloadOptions(session,episodeLink)
 
-def get_download_link(downloadOptions,choice):
-    return getDownloadLink(session,downloadOptions,choice-1)
+def get_download_link(downloadOption):
+    return getDownloadLink(session,downloadOption)
