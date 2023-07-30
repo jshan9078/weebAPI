@@ -1,8 +1,6 @@
-import requests
 import re
 import os
 import sys
-import math
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.animetemplate import Anime
 from utils.episodetemplate import Episode
