@@ -2,7 +2,7 @@ import requests
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-from navigator.seriesfinder import getSearchResults, getEpisode
+from navigator.seriesfinder import getSearchResults, getEpisode, getExtraData
 from downloadmanager.downloadscraper import getDownloadLink, getDownloadOptions
 session = requests.session()
 
@@ -23,3 +23,7 @@ def get_download_options(episodeLink):
 
 def get_download_link(downloadOption):
     return getDownloadLink(session,downloadOption)
+
+def get_extra_data(result):
+    return getExtraData(session,result)
+

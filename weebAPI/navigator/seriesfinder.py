@@ -31,8 +31,14 @@ def getEpisode(session,result,episodeNumber):
                 newEpisodeObject = Episode(entry[0],entry[1],entry[2],entry[3],entry[5],entry[6],playStem+result.siteLink+"/"+entry[7])
                 return newEpisodeObject
             
+def getExtraData(session, result):
+    rawdata = session.get(result.fullSiteLink).text
+    result.category = re.findall('<a href="/anime/theme/(.+?)"',rawdata) + re.findall('<a href="/anime/genre/(.+?)"',rawdata) + re.findall('<a href="/anime/demographic/(.+?)"',rawdata)
+    result.mal = re.findall('<a href="(.+?)" class="font-weight-bold" title=".+? on MyAnimeList"',rawdata)[0]
+    result.synopsis = re.findall('<div class="anime-synopsis">(.+?)</div>',rawdata)[0].replace('<br>','')
+    return result
 
-            
+    
         
 
 

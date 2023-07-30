@@ -16,6 +16,9 @@ class Anime:
         self.poster = poster 
         self.siteLink = siteLink
         self.fullSiteLink = playStem+self.siteLink
+        self.synopsis = None
+        self.category = None
+        self.mal = None
 
     def optionDisplay(self):
         print(self.title)
