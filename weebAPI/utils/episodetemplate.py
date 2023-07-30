@@ -13,6 +13,6 @@ class Episode:
         print(f"Language: {self.lang}")
         print(f"Duration: {self.duration}")
         print(f"Link: {self.episodeLink}")
-
+        print()
     
 
