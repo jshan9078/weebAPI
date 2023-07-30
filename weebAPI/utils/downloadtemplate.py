@@ -7,10 +7,12 @@ class Download:
             self.dub = "Dub"
         else:
             self.dub = "Sub"
+        self.downloadLink = None
 
     def display(self):
         print(self.dub)
         print(f"Resolution: {self.res}")
         print(f"Size: {self.fileSize}")
-        print(self.url)
+        if self.downloadLink!=None:
+            print(f"Download Link: {self.downloadLink}")
         print()
