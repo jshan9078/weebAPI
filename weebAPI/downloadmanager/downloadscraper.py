@@ -22,8 +22,7 @@ def getDownloadOptions(session, targetEpisode):
     return downloadOptions
 
 
-def getDownloadLink(session, downloadOption):
-    intermediaryPageLink = downloadOption.url
+def getDownloadLink(session, intermediaryPageLink):
     intermediaryPage = session.get(intermediaryPageLink).text
     downloadPageLink = re.search('<a href="(.+?)" .+?>Redirect me</a>',intermediaryPage).group(1)
     downloadPage = session.get(downloadPageLink).text

@@ -21,22 +21,22 @@ def getSearchResults(session, query):
         searchResults.append(parsedEntry)
     return searchResults
 
-def getEpisode(session,result,episodeNumber):
-    pageCount=math.ceil(int(result.epCount)/30)
+def getEpisode(session,epCount, siteLink,episodeNumber):
+    pageCount=math.ceil(epCount/30)
     for i in range(1,pageCount+1,1):
-        episodeResultsRaw = session.get(f"""{episodeStem}{result.siteLink}&sort=episode_asc&page={i}""").text
+        episodeResultsRaw = session.get(f"""{episodeStem}{siteLink}&sort=episode_asc&page={i}""").text
         seperated = re.findall('"id":(.+?),"anime_id":(.+?),"episode":(.+?),"episode2":0,"edition":"","title":"","snapshot":"(.+?)","disc":"(.*?)","audio":"(.+?)","duration":"(.+?)","session":"(.+?)"',episodeResultsRaw)
         for entry in seperated:
             if int(entry[2])==episodeNumber:
-                newEpisodeObject = Episode(entry[0],entry[1],entry[2],entry[3],entry[5],entry[6],playStem+result.siteLink+"/"+entry[7])
+                newEpisodeObject = Episode(entry[0],entry[1],entry[2],entry[3],entry[5],entry[6],playStem+siteLink+"/"+entry[7])
                 return newEpisodeObject
             
-def getExtraData(session, result):
-    rawdata = session.get(result.fullSiteLink).text
-    result.category = re.findall('<a href="/anime/theme/(.+?)"',rawdata) + re.findall('<a href="/anime/genre/(.+?)"',rawdata) + re.findall('<a href="/anime/demographic/(.+?)"',rawdata)
-    result.mal = re.findall('<a href="(.+?)" class="font-weight-bold" title=".+? on MyAnimeList"',rawdata)[0]
-    result.synopsis = re.findall('<div class="anime-synopsis">(.+?)</div>',rawdata)[0].replace('<br>','')
-    return result
+def getExtraData(session, fullSiteLink):
+    rawdata = session.get(fullSiteLink).text
+    category = re.findall('<a href="/anime/theme/(.+?)"',rawdata) + re.findall('<a href="/anime/genre/(.+?)"',rawdata) + re.findall('<a href="/anime/demographic/(.+?)"',rawdata)
+    mal = re.findall('<a href="(.+?)" class="font-weight-bold" title=".+? on MyAnimeList"',rawdata)[0]
+    synopsis = re.findall('<div class="anime-synopsis">(.+?)</div>',rawdata)[0].replace('<br>','').replace('<i>','').replace('</i>','')
+    return {"category":category,"mal":mal,"synopsis":synopsis}
 
     
         
