@@ -8,11 +8,3 @@ class Download:
         else:
             self.type = "Sub"
         self.downloadLink = None
-
-    def display(self):
-        print(self.type)
-        print(f"Resolution: {self.res}")
-        print(f"Size: {self.fileSize}")
-        if self.downloadLink!=None:
-            print(f"Download Link: {self.downloadLink}")
-        print()
