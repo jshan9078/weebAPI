@@ -15,16 +15,16 @@
 **The containerized images for every version are posted on Docker Hub here [`https://hub.docker.com/r/jshan9078/weeb-api/tags`](https://hub.docker.com/r/jshan9078/weeb-api/tags)**
 
 ### Examples
------
-**Note:** You can test the endpoints of the API from the documentation page linked above. Alternatively, simply construct a URL as follows.
 
+#### **Note:** You can test the endpoints of the API from the documentation page linked above. Alternatively, simply construct a URL as follows.
+-----
 > #### get_search_results
 **Use this endpoint to obtain search results for a desired anime**
 
 `https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_search_results/naruto` returns the following JSON data
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135464972726587402/image.png)
-
+-----
 > #### get_full_data
 **Use this endpoint to obtain complete data for an anime series.**
 
@@ -33,7 +33,7 @@
 `https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_full_data/90c9fc20-0c15-cee2-0d03-6f1fb998cec3` returns the following JSON data
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135465749264216164/image.png)
-
+-----
 > #### get_episode
 **Use this endpoint to obtain complete data for a particular episode.**
 
@@ -42,7 +42,7 @@
 `https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_episode/90c9fc20-0c15-cee2-0d03-6f1fb998cec3/1` returns the following JSON data
 
 ![](https://media.discordapp.net/attachments/928022919337103393/1135472403053563955/image.png?width=1440&height=90)
-
+-----
 > #### get_download_options
 **Use this endpoint to obtain the download options for a particular episode.**
 
@@ -51,7 +51,7 @@
 `https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_download_options/https://animepahe.ru/play/f1af0e39-d51f-34e4-decb-761d18d39729/d9ad6a27917400b6582742c55b1e39be76d234524db0789302c87bc4f9e827dd` returns the following JSON data
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135473723500134480/image.png)
-
+-----
 > #### get_download_link
 **Use this endpoint to obtain the download link**
 
