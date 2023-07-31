@@ -12,6 +12,29 @@
 
 **To view the documentation for the API, simply go to [`weeb-api-7nrxlzoyjq-uc.a.run.app/docs`](https://weeb-api-7nrxlzoyjq-uc.a.run.app/docs)**
 
+**The containerized images for every version are posted on Docker Hub here [`https://hub.docker.com/r/jshan9078/weeb-api/tags`](https://hub.docker.com/r/jshan9078/weeb-api/tags)**
+
+### Examples
+-----
+**Note:** You can test the endpoints of the API from the documentation page linked above. Alternatively, simply construct a URL as follows.
+
+> #### get_search_results
+**Use this endpoint to obtain search results for a desired anime**
+
+`https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_search_results/naruto` returns the following JSON data
+
+![](https://cdn.discordapp.com/attachments/928022919337103393/1135464972726587402/image.png)
+
+> #### get_full_data
+**Use this endpoint to obtain complete data for an anime series.**
+
+*siteLink refers to the identifier `https://animepahe.ru/anime/{identifier}`*
+
+`https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_full_data/90c9fc20-0c15-cee2-0d03-6f1fb998cec3` returns the following JSON data
+
+![](https://cdn.discordapp.com/attachments/928022919337103393/1135465749264216164/image.png)
+
+
 ## More Info: How does it work?
 
 ### Webscraping
@@ -19,7 +42,7 @@ As mentioned above, the API is inherently a web scraper that grabs data from [an
 
 ### Bypassing DDoS-Guard
 
-Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is hosting the API locally, but if it is being hosted on a service such as *AWS* or *Google Cloud Run*, the the python requests library fails to fetch the frontend of animepahe. To solve this, cookies and headers can be used as shown in the various functions inside the [weebAPI folder](https://github.com/JonnyACCI/weebAPI/tree/main/weebAPI). Credit for the function used to retrieve cookies goes to [gallery-dl](https://github.com/mikf/gallery-dl)
+Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is hosting the API locally, but if it is being hosted on a service such as *AWS* or *Google Cloud Run*, the the python requests library fails to fetch the frontend of animepahe. To solve this, cookies and User-Agent HTTP headers can be used as shown in the various functions inside the [weebAPI folder](https://github.com/JonnyACCI/weebAPI/tree/main/weebAPI). Credit for the function used to retrieve cookies goes to [gallery-dl](https://github.com/mikf/gallery-dl).
 
 ### Decrypting the Intermediary Page
 *When one tries to download an episode off animepahe (after choosing the desired download option), they will redirected to a `pahe.win` page.*
