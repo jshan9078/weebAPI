@@ -26,13 +26,12 @@ async def get_full_data(siteLink: str):
 
     return getFullData(session,siteLink)
 
-@app.get('/get_episode/{siteLink}/{epPages}/{episodeNumber}')
-async def get_episode(siteLink: str, epPages: int, episodeNumber: int):
+@app.get('/get_episode/{siteLink}/{episodeNumber}')
+async def get_episode(siteLink: str, episodeNumber: int):
     """Get data for a particular episode. \n
-    epPages can be obtained by using the get_full_data endpoint \n
     siteLink refers to the identifier following 'https://animepahe.ru/anime/' """
 
-    return getEpisode(session,epPages,siteLink,episodeNumber)
+    return getEpisode(session,siteLink,episodeNumber)
 
 @app.get('/get_download_options/{episodeLink:path}')
 async def get_download_options(episodeLink: str):

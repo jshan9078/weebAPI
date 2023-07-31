@@ -27,21 +27,26 @@ def getSearchResults(session, query):
         searchResults.append(parsedEntry)
     return searchResults
 
-def getEpisode(session,epPages,siteLink,episodeNumber):
+def getEpisode(session,siteLink,episodeNumber):
     my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     counter=0
-    for i in range(1,epPages+1,1):
-        url = f"""{"https://animepahe.ru/api?m=release&id="}{siteLink}&sort=episode_asc&page={i}"""
-        cookie = get_ddg_cookies(url)
-        session.cookies.set(cookie,cookie,domain=url)
-        episodeResultsRaw = session.get(url).text
-        seperated = re.findall('"id":(.+?),"anime_id":(.+?),"episode":(.+?),"episode2":0,"edition":"","title":"","snapshot":"(.+?)","disc":"(.*?)","audio":"(.+?)","duration":"(.+?)","session":"(.+?)"',episodeResultsRaw)
-        for entry in seperated:
-            counter+=1
-            if counter==episodeNumber:
-                newEpisodeObject = Episode(entry[0],entry[1],episodeNumber,entry[3],entry[5],entry[6],"https://animepahe.ru/play/"+siteLink+"/"+entry[7])
-                return newEpisodeObject
+    i=1
+    while True:
+        try: 
+            url = f"""{"https://animepahe.ru/api?m=release&id="}{siteLink}&sort=episode_asc&page={i}"""
+            cookie = get_ddg_cookies(url)
+            session.cookies.set(cookie,cookie,domain=url)
+            episodeResultsRaw = session.get(url).text
+            seperated = re.findall('"id":(.+?),"anime_id":(.+?),"episode":(.+?),"episode2":0,"edition":"","title":"","snapshot":"(.+?)","disc":"(.*?)","audio":"(.+?)","duration":"(.+?)","session":"(.+?)"',episodeResultsRaw)
+            for entry in seperated:
+                counter+=1
+                if counter==episodeNumber:
+                    newEpisodeObject = Episode(entry[0],entry[1],episodeNumber,entry[3],entry[5],entry[6],"https://animepahe.ru/play/"+siteLink+"/"+entry[7])
+                    return newEpisodeObject
+            i+=1
+        except:
+            return None
             
 def getFullData(session, siteLink):
     my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
