@@ -71,11 +71,10 @@ As mentioned above, the API is inherently a web scraper that grabs data from [an
 Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is hosting the API locally, but if it is being hosted on a service such as *AWS* or *Google Cloud Run*, the the python requests library fails to fetch the frontend of animepahe. To solve this, cookies and User-Agent HTTP headers can be used as shown in the various functions inside the [weebAPI folder](https://github.com/JonnyACCI/weebAPI/tree/main/weebAPI). Credit for the function used to retrieve cookies goes to [gallery-dl](https://github.com/mikf/gallery-dl).
 
 ### Decrypting the Intermediary Page
-*When one tries to download an episode off animepahe (after choosing the desired download option), they will be redirected to  `pahe.win` page.*
-*This is the intermediary page.*
+*When one tries to download an episode off animepahe, there are options.
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135459680689332284/image.png)
-*For example, clicking the 1080p option of this episode, will take me to the following `pahe.win` page*
+*For example, clicking the 1080p option of this episode, will take me to this `pahe.win` page*.
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135460137201578044/image.png)
 *From here, clicking continue will take me to the following page on `kwix.cx`*
