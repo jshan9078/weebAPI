@@ -42,7 +42,7 @@ async def get_download_options(episodeLink: str):
 @app.get('/get_download_link/{intermediaryPageLink:path}')
 async def get_download_link(intermediaryPageLink: str):
     """Get the link to the download file for a specific episode's download option \n
-    intermediaryPageLink refers to the 'kwik.cx/' link """
+    intermediaryPageLink refers to the 'pahe.win' link """
     return getDownloadLink(session,intermediaryPageLink)
 
 
