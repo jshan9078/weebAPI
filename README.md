@@ -55,7 +55,7 @@
 > #### get_download_link
 **Use this endpoint to obtain the download link**
 
-*intermediaryPageLink refers to the `pahe.win` link*
+*intermediaryPageLink refers to the `https://pahe.win/` link*
 
 `https://weeb-api-7nrxlzoyjq-uc.a.run.app/get_download_link/https://pahe.win/NMZna` returns the following string data
 
