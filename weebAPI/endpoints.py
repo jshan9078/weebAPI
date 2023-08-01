@@ -5,9 +5,20 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from navigator.seriesfinder import getSearchResults, getEpisode, getFullData
 from downloadmanager.downloadscraper import getDownloadLink, getDownloadOptions
+from fastapi.middleware.cors import CORSMiddleware
 session = requests.session()
 
 app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to scrape anime data from animepahe")
+
+origins = ['*']
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/')
 async def root():
