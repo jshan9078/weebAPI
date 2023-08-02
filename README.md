@@ -81,7 +81,7 @@ Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135460951630544896/image.png)
 
-**To get to the `kwix.cx` page, decryption must be used on the `pahe.win` site to get a token.**
+**To get to the `kwix.cx` page, decryption must be done on the `pahe.win` site to get a token.**
 
 ### Getting the Download Link for A File
 **A download link can be obtained for a particular download option of a specific episode. To get this link, a POST request is made to the kwix.cx page. The location of the response is the download link.**
