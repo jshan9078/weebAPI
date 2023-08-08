@@ -10,7 +10,9 @@ session = requests.session()
 
 app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to scrape anime data from animepahe")
 
-origins = ['*']
+origins = ['https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/view','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/search',
+           'https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/index','64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app',
+           '64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/']
 
 app.add_middleware(
     CORSMiddleware,
