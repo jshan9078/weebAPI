@@ -10,13 +10,11 @@ session = requests.session()
 
 app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to scrape anime data from animepahe")
 
-origins = ['https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/view','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/search',
-           'https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/','https://64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/index','64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app',
-           '64cb417b0587b33dfe07f9c9--startling-platypus-256a7c.netlify.app/']
+origins = ["https?:\/\/(.+?\.)?64cb417b0587b33dfe07f9c9--startling-platypus-256a7c\.netlify\.app(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origin_regex="https?:\/\/(.+?\.)?64cb417b0587b33dfe07f9c9--startling-platypus-256a7c\.netlify\.app([A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
