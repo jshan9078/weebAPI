@@ -68,7 +68,7 @@ As mentioned above, the API is inherently a web scraper that grabs data from [an
 
 ### Bypassing DDoS-Guard
 
-Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is hosting the API locally, but if it is being hosted on a service such as *AWS* or *Google Cloud Run*, the the python requests library fails to fetch the frontend of animepahe. To solve this, cookies and User-Agent HTTP headers can be used as shown in the various functions inside the [weebAPI folder](https://github.com/JonnyACCI/weebAPI/tree/main/weebAPI). Credit for the function used to retrieve cookies goes to [gallery-dl](https://github.com/mikf/gallery-dl).
+Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is hosting the API locally, but if it is being hosted on a service such as *AWS* or *Google Cloud Run*, the the python requests library fails to fetch the frontend of animepahe. To solve this, cookies and User-Agent HTTP headers can be used as shown in the various functions inside the [weebAPI folder](https://github.com/JonnyACCI/weebAPI/tree/main/weebAPI). 
 
 ### Decrypting the Intermediary Page
 *When one tries to download an episode off animepahe, there are options.*
@@ -81,7 +81,7 @@ Animepahe employs a DDoS-Guard guard challenge. This is not of concern if one is
 
 ![](https://cdn.discordapp.com/attachments/928022919337103393/1135460951630544896/image.png)
 
-**To get to the `kwix.cx` page, decryption must be used on the `pahe.win` site to get a token. Credit for the [decryption functions](https://github.com/JonnyACCI/weebAPI/blob/main/weebAPI/downloadmanager/decrypter.py) used goes to [animdl](https://github.com/justfoolingaround/animdl)**
+**To get to the `kwix.cx` page, decryption must be done on the `pahe.win` site to get a token.**
 
 ### Getting the Download Link for A File
 **A download link can be obtained for a particular download option of a specific episode. To get this link, a POST request is made to the kwix.cx page. The location of the response is the download link.**
