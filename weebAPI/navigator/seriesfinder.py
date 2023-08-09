@@ -56,7 +56,7 @@ def getFullData(session, siteLink):
     session.cookies.set(cookie,cookie,domain=siteLink)
     rawdata = session.get(fullSiteLink).text
     category = re.findall('<a href="/anime/theme/(.+?)"',rawdata) + re.findall('<a href="/anime/genre/(.+?)"',rawdata) + re.findall('<a href="/anime/demographic/(.+?)"',rawdata)
-    mal = re.findall('<a href="(.+?)" class="font-weight-bold" title=".+? on MyAnimeList"',rawdata)[0][2:]
+    mal = re.findall('<a href="(.+?)" class="font-weight-bold" title.+?MyAnimeList"',rawdata)[0][2:]
     synopsis = re.findall('<div class="anime-synopsis">(.+?)</div>',rawdata)[0].replace('<br>','').replace('<i>','').replace('</i>','')
     id = int(re.findall('<meta name="id" content="(.+?)">',rawdata)[0])
     title = re.findall('<span class="sr-only unselectable">(.+?)</span>',rawdata)[0]
@@ -68,10 +68,9 @@ def getFullData(session, siteLink):
     epCount = int(re.findall('"total":(.+?),',episodeResultsRaw)[0])
     epPages = int(re.findall('"last_page":(.+?),',episodeResultsRaw)[0])
     season = re.findall('<a href="/anime/season/.+?" title=".+?">(.+?)</a>',rawdata)[0]
-    poster = re.findall('<a href="(.+?)" class="youtube-preview">',rawdata)[0]
     rawdata = ' '.join(rawdata.splitlines()).replace("\"",'')
     status = re.findall('Status: <a href=/anime/.+? title=(.+?)>',rawdata)[0]
-    fullData = Anime(fullSiteLink=fullSiteLink,title=title,type=type,status=status,poster=poster,siteLink=siteLink,id=id,epCount=epCount,season=season,category=category,mal=mal,synopsis=synopsis,epPages=epPages)
+    fullData = Anime(fullSiteLink=fullSiteLink,title=title,type=type,status=status,poster=None,siteLink=siteLink,id=id,epCount=epCount,season=season,category=category,mal=mal,synopsis=synopsis,epPages=epPages)
     return fullData
 
 

@@ -10,11 +10,17 @@ session = requests.session()
 
 app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to scrape anime data from animepahe")
 
-origins = ["https?:\/\/(.+?\.)?64cb417b0587b33dfe07f9c9--startling-platypus-256a7c\.netlify\.app(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?"]
+# origins = ["https://weebdachi.netlify.app","https://weebdachi.netlify.app/","https://weebdachi.netlify.app/search","https://weebdachi.netlify.app/view","https://weebdachi.netlify.app/index",
+#            "weebdachi.netlify.app","weebdachi.netlify.app/","weebdachi.netlify.app/search","weebdachi.netlify.app/view","weebdachi.netlify.app/index",
+#            "weebdachi.netlify.app/search/","weebdachi.netlify.app/view/","weebdachi.netlify.app/index/",
+#            "https://weebdachi.netlify.app/search/","https://weebdachi.netlify.app/view/","https://weebdachi.netlify.app/index/"
+#            ]
+
+origins = ["https://weebdachi.netlify.app"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex="https?:\/\/(.+?\.)?64cb417b0587b33dfe07f9c9--startling-platypus-256a7c\.netlify\.app([A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?",
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
