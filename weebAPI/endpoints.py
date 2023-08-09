@@ -16,7 +16,7 @@ app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to sc
 #            "https://weebdachi.netlify.app/search/","https://weebdachi.netlify.app/view/","https://weebdachi.netlify.app/index/"
 #            ]
 
-origins = ["https://weebdachi.netlify.app"]
+origins = ["https://weebdachi.netlify.app","http://localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
