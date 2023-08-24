@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "weebAPI/endpoints.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "weebAPI/endpoints.py"
+      }
+    ]
+  }

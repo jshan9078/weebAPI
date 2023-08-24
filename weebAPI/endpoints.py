@@ -10,13 +10,8 @@ session = requests.session()
 
 app = FastAPI(title="weebAPI",description="A RESTful API made with FastAPI to scrape anime data from animepahe")
 
-# origins = ["https://weebdachi.netlify.app","https://weebdachi.netlify.app/","https://weebdachi.netlify.app/search","https://weebdachi.netlify.app/view","https://weebdachi.netlify.app/index",
-#            "weebdachi.netlify.app","weebdachi.netlify.app/","weebdachi.netlify.app/search","weebdachi.netlify.app/view","weebdachi.netlify.app/index",
-#            "weebdachi.netlify.app/search/","weebdachi.netlify.app/view/","weebdachi.netlify.app/index/",
-#            "https://weebdachi.netlify.app/search/","https://weebdachi.netlify.app/view/","https://weebdachi.netlify.app/index/"
-#            ]
 
-origins = ["https://weebdachi.netlify.app","http://localhost:5173"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
