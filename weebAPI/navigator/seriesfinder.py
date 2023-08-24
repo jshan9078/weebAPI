@@ -5,7 +5,9 @@ import requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.animetemplate import Anime
 from utils.episodetemplate import Episode
-session = requests.session()
+import cloudscraper
+session = cloudscraper.create_scraper()
+
 
 def get_ddg_cookies(url):
     r = requests.get('https://check.ddos-guard.net/check.js', headers = {'referer': url})
