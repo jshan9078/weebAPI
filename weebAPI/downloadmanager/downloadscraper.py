@@ -6,8 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from decrypter import decrypt
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.downloadtemplate import Download
-import cloudscraper
-session = cloudscraper.create_scraper()
+session = requests.session()
 
 def get_ddg_cookies(url):
     r = requests.get('https://check.ddos-guard.net/check.js', headers = {'referer': url})

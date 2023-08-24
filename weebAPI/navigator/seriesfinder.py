@@ -5,8 +5,7 @@ import requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.animetemplate import Anime
 from utils.episodetemplate import Episode
-import cloudscraper
-session = cloudscraper.create_scraper()
+session = requests.session()
 
 
 def get_ddg_cookies(url):
