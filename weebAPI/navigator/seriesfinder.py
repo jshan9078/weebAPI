@@ -26,7 +26,7 @@ def getSearchResults(session, query):
     for entry in seperated:
         parsedEntry = Anime(entry[1],entry[2],entry[4],entry[8],entry[9])
         searchResults.append(parsedEntry)
-    return searchResults
+    return "bruh",searchResults
 
 def getEpisode(session,siteLink,episodeNumber):
     my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
