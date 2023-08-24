@@ -15,7 +15,7 @@ def get_ddg_cookies(url):
 
 
 def getSearchResults(session, query):
-    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     url = f"https://animepahe.ru/api?m=search&q={query}"
     cookie = get_ddg_cookies(url)
@@ -26,10 +26,10 @@ def getSearchResults(session, query):
     for entry in seperated:
         parsedEntry = Anime(entry[1],entry[2],entry[4],entry[8],entry[9])
         searchResults.append(parsedEntry)
-    return "bruh",searchResults
+    return searchResults
 
 def getEpisode(session,siteLink,episodeNumber):
-    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     counter=0
     i=1
@@ -50,7 +50,7 @@ def getEpisode(session,siteLink,episodeNumber):
             return None
             
 def getFullData(session, siteLink):
-    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     fullSiteLink = "https://animepahe.ru/anime/"+siteLink
     cookie = get_ddg_cookies(fullSiteLink)

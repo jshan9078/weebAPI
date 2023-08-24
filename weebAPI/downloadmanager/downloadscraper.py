@@ -14,7 +14,7 @@ def get_ddg_cookies(url):
     return r.cookies.get_dict()['__ddg2']
 
 def getDownloadOptions(session, targetEpisode):
-    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     cookie = get_ddg_cookies(targetEpisode)
     session.cookies.set(cookie,cookie,domain=targetEpisode)
@@ -32,7 +32,7 @@ def getDownloadOptions(session, targetEpisode):
 
 
 def getDownloadLink(session, intermediaryPageLink):
-    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+    my_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
     session.headers.update(my_headers)
     cookie = get_ddg_cookies(intermediaryPageLink)
     session.cookies.set(cookie,cookie,domain=intermediaryPageLink)
